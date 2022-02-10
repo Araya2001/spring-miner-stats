@@ -61,7 +61,6 @@
                 <configuration>
                     <sourceType>json</sourceType>
                     <annotationStyle>jackson2</annotationStyle>
-                    <outputDirectory>src/main/java/com/aajdev/springminerstats/dto/clashroyale</outputDirectory>
                     <sourceDirectory>${basedir}/src/main/resources/schema</sourceDirectory>
                 </configuration>
                 <executions>
