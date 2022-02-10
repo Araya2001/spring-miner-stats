@@ -54,6 +54,24 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.jsonschema2pojo</groupId>
+                <artifactId>jsonschema2pojo-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <configuration>
+                    <sourceType>json</sourceType>
+                    <annotationStyle>jackson2</annotationStyle>
+                    <outputDirectory>src/main/java/com/aajdev/springminerstats/dto/clashroyale</outputDirectory>
+                    <sourceDirectory>${basedir}/src/main/resources/schema</sourceDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
