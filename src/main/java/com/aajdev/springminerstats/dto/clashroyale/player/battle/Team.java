@@ -17,12 +17,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "tag",
     "name",
     "startingTrophies",
-    "trophyChange",
     "crowns",
     "kingTowerHitPoints",
     "princessTowersHitPoints",
     "clan",
-    "cards"
+    "cards",
+    "trophyChange"
 })
 @Generated("jsonschema2pojo")
 public class Team {
@@ -33,8 +33,6 @@ public class Team {
     private String name;
     @JsonProperty("startingTrophies")
     private Integer startingTrophies;
-    @JsonProperty("trophyChange")
-    private Integer trophyChange;
     @JsonProperty("crowns")
     private Integer crowns;
     @JsonProperty("kingTowerHitPoints")
@@ -45,6 +43,8 @@ public class Team {
     private Clan clan;
     @JsonProperty("cards")
     private List<Card> cards = new ArrayList<Card>();
+    @JsonProperty("trophyChange")
+    private Integer trophyChange;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -76,16 +76,6 @@ public class Team {
     @JsonProperty("startingTrophies")
     public void setStartingTrophies(Integer startingTrophies) {
         this.startingTrophies = startingTrophies;
-    }
-
-    @JsonProperty("trophyChange")
-    public Integer getTrophyChange() {
-        return trophyChange;
-    }
-
-    @JsonProperty("trophyChange")
-    public void setTrophyChange(Integer trophyChange) {
-        this.trophyChange = trophyChange;
     }
 
     @JsonProperty("crowns")
@@ -138,6 +128,16 @@ public class Team {
         this.cards = cards;
     }
 
+    @JsonProperty("trophyChange")
+    public Integer getTrophyChange() {
+        return trophyChange;
+    }
+
+    @JsonProperty("trophyChange")
+    public void setTrophyChange(Integer trophyChange) {
+        this.trophyChange = trophyChange;
+    }
+
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;
@@ -164,10 +164,6 @@ public class Team {
         sb.append('=');
         sb.append(((this.startingTrophies == null)?"<null>":this.startingTrophies));
         sb.append(',');
-        sb.append("trophyChange");
-        sb.append('=');
-        sb.append(((this.trophyChange == null)?"<null>":this.trophyChange));
-        sb.append(',');
         sb.append("crowns");
         sb.append('=');
         sb.append(((this.crowns == null)?"<null>":this.crowns));
@@ -187,6 +183,10 @@ public class Team {
         sb.append("cards");
         sb.append('=');
         sb.append(((this.cards == null)?"<null>":this.cards));
+        sb.append(',');
+        sb.append("trophyChange");
+        sb.append('=');
+        sb.append(((this.trophyChange == null)?"<null>":this.trophyChange));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');

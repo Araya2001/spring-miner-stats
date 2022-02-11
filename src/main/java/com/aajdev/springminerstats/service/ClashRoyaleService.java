@@ -13,7 +13,7 @@ import com.aajdev.springminerstats.dto.clashroyale.location.list.LocationsRespon
 import com.aajdev.springminerstats.dto.clashroyale.location.ranking.clan.LocationsIdRankingClansResponse;
 import com.aajdev.springminerstats.dto.clashroyale.location.ranking.clanwar.LocationsIdRankingClanWarsResponse;
 import com.aajdev.springminerstats.dto.clashroyale.location.ranking.player.LocationsIdRankingPlayersResponse;
-import com.aajdev.springminerstats.dto.clashroyale.player.battle.PlayerTagBattleLogResponse;
+import com.aajdev.springminerstats.dto.clashroyale.player.battle.PlayerBattleLogResponse;
 import com.aajdev.springminerstats.dto.clashroyale.player.tag.PlayerTagResponse;
 import com.aajdev.springminerstats.dto.clashroyale.player.upcomingchest.PlayerTagUpcomingChestsResponse;
 import com.aajdev.springminerstats.dto.clashroyale.tournament.name.TournamentNameResponse;
@@ -32,7 +32,7 @@ public interface ClashRoyaleService {
 
   PlayerTagResponse getPlayerWithTag(String tag);
 
-  PlayerTagBattleLogResponse getPlayerBattleLog(String tag);
+  PlayerBattleLogResponse getPlayerBattleLog(String tag);
 
   PlayerTagUpcomingChestsResponse getPlayerUpcomingChests(String tag);
 

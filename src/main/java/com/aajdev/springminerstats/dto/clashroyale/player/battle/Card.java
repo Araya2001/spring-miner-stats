@@ -15,9 +15,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "name",
     "id",
     "level",
-    "starLevel",
     "maxLevel",
-    "iconUrls"
+    "iconUrls",
+    "starLevel"
 })
 @Generated("jsonschema2pojo")
 public class Card {
@@ -28,12 +28,12 @@ public class Card {
     private Integer id;
     @JsonProperty("level")
     private Integer level;
-    @JsonProperty("starLevel")
-    private Integer starLevel;
     @JsonProperty("maxLevel")
     private Integer maxLevel;
     @JsonProperty("iconUrls")
     private IconUrls iconUrls;
+    @JsonProperty("starLevel")
+    private Integer starLevel;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -67,16 +67,6 @@ public class Card {
         this.level = level;
     }
 
-    @JsonProperty("starLevel")
-    public Integer getStarLevel() {
-        return starLevel;
-    }
-
-    @JsonProperty("starLevel")
-    public void setStarLevel(Integer starLevel) {
-        this.starLevel = starLevel;
-    }
-
     @JsonProperty("maxLevel")
     public Integer getMaxLevel() {
         return maxLevel;
@@ -95,6 +85,16 @@ public class Card {
     @JsonProperty("iconUrls")
     public void setIconUrls(IconUrls iconUrls) {
         this.iconUrls = iconUrls;
+    }
+
+    @JsonProperty("starLevel")
+    public Integer getStarLevel() {
+        return starLevel;
+    }
+
+    @JsonProperty("starLevel")
+    public void setStarLevel(Integer starLevel) {
+        this.starLevel = starLevel;
     }
 
     @JsonAnyGetter
@@ -123,10 +123,6 @@ public class Card {
         sb.append('=');
         sb.append(((this.level == null)?"<null>":this.level));
         sb.append(',');
-        sb.append("starLevel");
-        sb.append('=');
-        sb.append(((this.starLevel == null)?"<null>":this.starLevel));
-        sb.append(',');
         sb.append("maxLevel");
         sb.append('=');
         sb.append(((this.maxLevel == null)?"<null>":this.maxLevel));
@@ -134,6 +130,10 @@ public class Card {
         sb.append("iconUrls");
         sb.append('=');
         sb.append(((this.iconUrls == null)?"<null>":this.iconUrls));
+        sb.append(',');
+        sb.append("starLevel");
+        sb.append('=');
+        sb.append(((this.starLevel == null)?"<null>":this.starLevel));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');

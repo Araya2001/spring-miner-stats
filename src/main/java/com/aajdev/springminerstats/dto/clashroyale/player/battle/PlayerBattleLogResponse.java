@@ -5,23 +5,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.processing.Generated;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import com.fasterxml.jackson.annotation.*;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "type",
     "battleTime",
+    "challengeId",
     "isLadderTournament",
     "arena",
     "gameMode",
+    "challengeWinCountBefore",
     "deckSelection",
     "team",
     "opponent",
+    "challengeTitle",
     "isHostedMatch",
     "boatBattleSide",
     "boatBattleWon",
@@ -30,24 +29,30 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "remainingTowers"
 })
 @Generated("jsonschema2pojo")
-public class PlayerTagBattleLogResponse {
+public class PlayerBattleLogResponse {
 
     @JsonProperty("type")
     private String type;
     @JsonProperty("battleTime")
     private String battleTime;
+    @JsonProperty("challengeId")
+    private Integer challengeId;
     @JsonProperty("isLadderTournament")
     private Boolean isLadderTournament;
     @JsonProperty("arena")
     private Arena arena;
     @JsonProperty("gameMode")
     private GameMode gameMode;
+    @JsonProperty("challengeWinCountBefore")
+    private Integer challengeWinCountBefore;
     @JsonProperty("deckSelection")
     private String deckSelection;
     @JsonProperty("team")
     private List<Team> team = new ArrayList<Team>();
     @JsonProperty("opponent")
     private List<Opponent> opponent = new ArrayList<Opponent>();
+    @JsonProperty("challengeTitle")
+    private String challengeTitle;
     @JsonProperty("isHostedMatch")
     private Boolean isHostedMatch;
     @JsonProperty("boatBattleSide")
@@ -83,6 +88,16 @@ public class PlayerTagBattleLogResponse {
         this.battleTime = battleTime;
     }
 
+    @JsonProperty("challengeId")
+    public Integer getChallengeId() {
+        return challengeId;
+    }
+
+    @JsonProperty("challengeId")
+    public void setChallengeId(Integer challengeId) {
+        this.challengeId = challengeId;
+    }
+
     @JsonProperty("isLadderTournament")
     public Boolean getIsLadderTournament() {
         return isLadderTournament;
@@ -113,6 +128,16 @@ public class PlayerTagBattleLogResponse {
         this.gameMode = gameMode;
     }
 
+    @JsonProperty("challengeWinCountBefore")
+    public Integer getChallengeWinCountBefore() {
+        return challengeWinCountBefore;
+    }
+
+    @JsonProperty("challengeWinCountBefore")
+    public void setChallengeWinCountBefore(Integer challengeWinCountBefore) {
+        this.challengeWinCountBefore = challengeWinCountBefore;
+    }
+
     @JsonProperty("deckSelection")
     public String getDeckSelection() {
         return deckSelection;
@@ -141,6 +166,16 @@ public class PlayerTagBattleLogResponse {
     @JsonProperty("opponent")
     public void setOpponent(List<Opponent> opponent) {
         this.opponent = opponent;
+    }
+
+    @JsonProperty("challengeTitle")
+    public String getChallengeTitle() {
+        return challengeTitle;
+    }
+
+    @JsonProperty("challengeTitle")
+    public void setChallengeTitle(String challengeTitle) {
+        this.challengeTitle = challengeTitle;
     }
 
     @JsonProperty("isHostedMatch")
@@ -216,7 +251,7 @@ public class PlayerTagBattleLogResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(PlayerTagBattleLogResponse.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(PlayerBattleLogResponse.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("type");
         sb.append('=');
         sb.append(((this.type == null)?"<null>":this.type));
@@ -224,6 +259,10 @@ public class PlayerTagBattleLogResponse {
         sb.append("battleTime");
         sb.append('=');
         sb.append(((this.battleTime == null)?"<null>":this.battleTime));
+        sb.append(',');
+        sb.append("challengeId");
+        sb.append('=');
+        sb.append(((this.challengeId == null)?"<null>":this.challengeId));
         sb.append(',');
         sb.append("isLadderTournament");
         sb.append('=');
@@ -237,6 +276,10 @@ public class PlayerTagBattleLogResponse {
         sb.append('=');
         sb.append(((this.gameMode == null)?"<null>":this.gameMode));
         sb.append(',');
+        sb.append("challengeWinCountBefore");
+        sb.append('=');
+        sb.append(((this.challengeWinCountBefore == null)?"<null>":this.challengeWinCountBefore));
+        sb.append(',');
         sb.append("deckSelection");
         sb.append('=');
         sb.append(((this.deckSelection == null)?"<null>":this.deckSelection));
@@ -248,6 +291,10 @@ public class PlayerTagBattleLogResponse {
         sb.append("opponent");
         sb.append('=');
         sb.append(((this.opponent == null)?"<null>":this.opponent));
+        sb.append(',');
+        sb.append("challengeTitle");
+        sb.append('=');
+        sb.append(((this.challengeTitle == null)?"<null>":this.challengeTitle));
         sb.append(',');
         sb.append("isHostedMatch");
         sb.append('=');
@@ -290,6 +337,7 @@ public class PlayerTagBattleLogResponse {
         int result = 1;
         result = ((result* 31)+((this.prevTowersDestroyed == null)? 0 :this.prevTowersDestroyed.hashCode()));
         result = ((result* 31)+((this.boatBattleWon == null)? 0 :this.boatBattleWon.hashCode()));
+        result = ((result* 31)+((this.challengeTitle == null)? 0 :this.challengeTitle.hashCode()));
         result = ((result* 31)+((this.remainingTowers == null)? 0 :this.remainingTowers.hashCode()));
         result = ((result* 31)+((this.arena == null)? 0 :this.arena.hashCode()));
         result = ((result* 31)+((this.team == null)? 0 :this.team.hashCode()));
@@ -297,12 +345,14 @@ public class PlayerTagBattleLogResponse {
         result = ((result* 31)+((this.battleTime == null)? 0 :this.battleTime.hashCode()));
         result = ((result* 31)+((this.boatBattleSide == null)? 0 :this.boatBattleSide.hashCode()));
         result = ((result* 31)+((this.deckSelection == null)? 0 :this.deckSelection.hashCode()));
+        result = ((result* 31)+((this.challengeId == null)? 0 :this.challengeId.hashCode()));
         result = ((result* 31)+((this.newTowersDestroyed == null)? 0 :this.newTowersDestroyed.hashCode()));
         result = ((result* 31)+((this.isHostedMatch == null)? 0 :this.isHostedMatch.hashCode()));
         result = ((result* 31)+((this.opponent == null)? 0 :this.opponent.hashCode()));
         result = ((result* 31)+((this.additionalProperties == null)? 0 :this.additionalProperties.hashCode()));
         result = ((result* 31)+((this.gameMode == null)? 0 :this.gameMode.hashCode()));
         result = ((result* 31)+((this.isLadderTournament == null)? 0 :this.isLadderTournament.hashCode()));
+        result = ((result* 31)+((this.challengeWinCountBefore == null)? 0 :this.challengeWinCountBefore.hashCode()));
         return result;
     }
 
@@ -311,11 +361,11 @@ public class PlayerTagBattleLogResponse {
         if (other == this) {
             return true;
         }
-        if ((other instanceof PlayerTagBattleLogResponse) == false) {
+        if ((other instanceof PlayerBattleLogResponse) == false) {
             return false;
         }
-        PlayerTagBattleLogResponse rhs = ((PlayerTagBattleLogResponse) other);
-        return ((((((((((((((((this.prevTowersDestroyed == rhs.prevTowersDestroyed)||((this.prevTowersDestroyed!= null)&&this.prevTowersDestroyed.equals(rhs.prevTowersDestroyed)))&&((this.boatBattleWon == rhs.boatBattleWon)||((this.boatBattleWon!= null)&&this.boatBattleWon.equals(rhs.boatBattleWon))))&&((this.remainingTowers == rhs.remainingTowers)||((this.remainingTowers!= null)&&this.remainingTowers.equals(rhs.remainingTowers))))&&((this.arena == rhs.arena)||((this.arena!= null)&&this.arena.equals(rhs.arena))))&&((this.team == rhs.team)||((this.team!= null)&&this.team.equals(rhs.team))))&&((this.type == rhs.type)||((this.type!= null)&&this.type.equals(rhs.type))))&&((this.battleTime == rhs.battleTime)||((this.battleTime!= null)&&this.battleTime.equals(rhs.battleTime))))&&((this.boatBattleSide == rhs.boatBattleSide)||((this.boatBattleSide!= null)&&this.boatBattleSide.equals(rhs.boatBattleSide))))&&((this.deckSelection == rhs.deckSelection)||((this.deckSelection!= null)&&this.deckSelection.equals(rhs.deckSelection))))&&((this.newTowersDestroyed == rhs.newTowersDestroyed)||((this.newTowersDestroyed!= null)&&this.newTowersDestroyed.equals(rhs.newTowersDestroyed))))&&((this.isHostedMatch == rhs.isHostedMatch)||((this.isHostedMatch!= null)&&this.isHostedMatch.equals(rhs.isHostedMatch))))&&((this.opponent == rhs.opponent)||((this.opponent!= null)&&this.opponent.equals(rhs.opponent))))&&((this.additionalProperties == rhs.additionalProperties)||((this.additionalProperties!= null)&&this.additionalProperties.equals(rhs.additionalProperties))))&&((this.gameMode == rhs.gameMode)||((this.gameMode!= null)&&this.gameMode.equals(rhs.gameMode))))&&((this.isLadderTournament == rhs.isLadderTournament)||((this.isLadderTournament!= null)&&this.isLadderTournament.equals(rhs.isLadderTournament))));
+        PlayerBattleLogResponse rhs = ((PlayerBattleLogResponse) other);
+        return (((((((((((((((((((this.prevTowersDestroyed == rhs.prevTowersDestroyed)||((this.prevTowersDestroyed!= null)&&this.prevTowersDestroyed.equals(rhs.prevTowersDestroyed)))&&((this.boatBattleWon == rhs.boatBattleWon)||((this.boatBattleWon!= null)&&this.boatBattleWon.equals(rhs.boatBattleWon))))&&((this.challengeTitle == rhs.challengeTitle)||((this.challengeTitle!= null)&&this.challengeTitle.equals(rhs.challengeTitle))))&&((this.remainingTowers == rhs.remainingTowers)||((this.remainingTowers!= null)&&this.remainingTowers.equals(rhs.remainingTowers))))&&((this.arena == rhs.arena)||((this.arena!= null)&&this.arena.equals(rhs.arena))))&&((this.team == rhs.team)||((this.team!= null)&&this.team.equals(rhs.team))))&&((this.type == rhs.type)||((this.type!= null)&&this.type.equals(rhs.type))))&&((this.battleTime == rhs.battleTime)||((this.battleTime!= null)&&this.battleTime.equals(rhs.battleTime))))&&((this.boatBattleSide == rhs.boatBattleSide)||((this.boatBattleSide!= null)&&this.boatBattleSide.equals(rhs.boatBattleSide))))&&((this.deckSelection == rhs.deckSelection)||((this.deckSelection!= null)&&this.deckSelection.equals(rhs.deckSelection))))&&((this.challengeId == rhs.challengeId)||((this.challengeId!= null)&&this.challengeId.equals(rhs.challengeId))))&&((this.newTowersDestroyed == rhs.newTowersDestroyed)||((this.newTowersDestroyed!= null)&&this.newTowersDestroyed.equals(rhs.newTowersDestroyed))))&&((this.isHostedMatch == rhs.isHostedMatch)||((this.isHostedMatch!= null)&&this.isHostedMatch.equals(rhs.isHostedMatch))))&&((this.opponent == rhs.opponent)||((this.opponent!= null)&&this.opponent.equals(rhs.opponent))))&&((this.additionalProperties == rhs.additionalProperties)||((this.additionalProperties!= null)&&this.additionalProperties.equals(rhs.additionalProperties))))&&((this.gameMode == rhs.gameMode)||((this.gameMode!= null)&&this.gameMode.equals(rhs.gameMode))))&&((this.isLadderTournament == rhs.isLadderTournament)||((this.isLadderTournament!= null)&&this.isLadderTournament.equals(rhs.isLadderTournament))))&&((this.challengeWinCountBefore == rhs.challengeWinCountBefore)||((this.challengeWinCountBefore!= null)&&this.challengeWinCountBefore.equals(rhs.challengeWinCountBefore))));
     }
 
 }

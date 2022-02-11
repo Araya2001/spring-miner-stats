@@ -17,12 +17,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "tag",
     "name",
     "startingTrophies",
-    "trophyChange",
     "crowns",
     "kingTowerHitPoints",
-    "princessTowersHitPoints",
     "clan",
-    "cards"
+    "cards",
+    "trophyChange",
+    "princessTowersHitPoints"
 })
 @Generated("jsonschema2pojo")
 public class Opponent {
@@ -33,18 +33,18 @@ public class Opponent {
     private String name;
     @JsonProperty("startingTrophies")
     private Integer startingTrophies;
-    @JsonProperty("trophyChange")
-    private Integer trophyChange;
     @JsonProperty("crowns")
     private Integer crowns;
     @JsonProperty("kingTowerHitPoints")
     private Integer kingTowerHitPoints;
-    @JsonProperty("princessTowersHitPoints")
-    private List<Integer> princessTowersHitPoints = new ArrayList<Integer>();
     @JsonProperty("clan")
     private Clan__1 clan;
     @JsonProperty("cards")
     private List<Card__1> cards = new ArrayList<Card__1>();
+    @JsonProperty("trophyChange")
+    private Integer trophyChange;
+    @JsonProperty("princessTowersHitPoints")
+    private List<Integer> princessTowersHitPoints = new ArrayList<Integer>();
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -78,16 +78,6 @@ public class Opponent {
         this.startingTrophies = startingTrophies;
     }
 
-    @JsonProperty("trophyChange")
-    public Integer getTrophyChange() {
-        return trophyChange;
-    }
-
-    @JsonProperty("trophyChange")
-    public void setTrophyChange(Integer trophyChange) {
-        this.trophyChange = trophyChange;
-    }
-
     @JsonProperty("crowns")
     public Integer getCrowns() {
         return crowns;
@@ -108,16 +98,6 @@ public class Opponent {
         this.kingTowerHitPoints = kingTowerHitPoints;
     }
 
-    @JsonProperty("princessTowersHitPoints")
-    public List<Integer> getPrincessTowersHitPoints() {
-        return princessTowersHitPoints;
-    }
-
-    @JsonProperty("princessTowersHitPoints")
-    public void setPrincessTowersHitPoints(List<Integer> princessTowersHitPoints) {
-        this.princessTowersHitPoints = princessTowersHitPoints;
-    }
-
     @JsonProperty("clan")
     public Clan__1 getClan() {
         return clan;
@@ -136,6 +116,26 @@ public class Opponent {
     @JsonProperty("cards")
     public void setCards(List<Card__1> cards) {
         this.cards = cards;
+    }
+
+    @JsonProperty("trophyChange")
+    public Integer getTrophyChange() {
+        return trophyChange;
+    }
+
+    @JsonProperty("trophyChange")
+    public void setTrophyChange(Integer trophyChange) {
+        this.trophyChange = trophyChange;
+    }
+
+    @JsonProperty("princessTowersHitPoints")
+    public List<Integer> getPrincessTowersHitPoints() {
+        return princessTowersHitPoints;
+    }
+
+    @JsonProperty("princessTowersHitPoints")
+    public void setPrincessTowersHitPoints(List<Integer> princessTowersHitPoints) {
+        this.princessTowersHitPoints = princessTowersHitPoints;
     }
 
     @JsonAnyGetter
@@ -164,10 +164,6 @@ public class Opponent {
         sb.append('=');
         sb.append(((this.startingTrophies == null)?"<null>":this.startingTrophies));
         sb.append(',');
-        sb.append("trophyChange");
-        sb.append('=');
-        sb.append(((this.trophyChange == null)?"<null>":this.trophyChange));
-        sb.append(',');
         sb.append("crowns");
         sb.append('=');
         sb.append(((this.crowns == null)?"<null>":this.crowns));
@@ -176,10 +172,6 @@ public class Opponent {
         sb.append('=');
         sb.append(((this.kingTowerHitPoints == null)?"<null>":this.kingTowerHitPoints));
         sb.append(',');
-        sb.append("princessTowersHitPoints");
-        sb.append('=');
-        sb.append(((this.princessTowersHitPoints == null)?"<null>":this.princessTowersHitPoints));
-        sb.append(',');
         sb.append("clan");
         sb.append('=');
         sb.append(((this.clan == null)?"<null>":this.clan));
@@ -187,6 +179,14 @@ public class Opponent {
         sb.append("cards");
         sb.append('=');
         sb.append(((this.cards == null)?"<null>":this.cards));
+        sb.append(',');
+        sb.append("trophyChange");
+        sb.append('=');
+        sb.append(((this.trophyChange == null)?"<null>":this.trophyChange));
+        sb.append(',');
+        sb.append("princessTowersHitPoints");
+        sb.append('=');
+        sb.append(((this.princessTowersHitPoints == null)?"<null>":this.princessTowersHitPoints));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');
