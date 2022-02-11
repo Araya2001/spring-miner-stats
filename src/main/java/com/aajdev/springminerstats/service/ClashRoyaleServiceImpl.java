@@ -57,7 +57,7 @@ public class ClashRoyaleServiceImpl implements ClashRoyaleService {
     httpHeaders.set("Authorization", "Bearer " + apiToken);
     HttpEntity<Object> requestEntity = new HttpEntity<>(httpHeaders);
     try {
-      log.info("RETRIEVED CLANS WITH NAME LIKE" + name);
+      log.info("RETRIEVED CLANS WITH NAME LIKE " + name);
       ResponseEntity<ClanNameResponse> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, ClanNameResponse.class);
       return response.getBody();
     } catch (Exception e) {
@@ -159,7 +159,7 @@ public class ClashRoyaleServiceImpl implements ClashRoyaleService {
       PlayerBattleLogResponse[] playerBattleLogResponses = mapper.readValue( response.getBody(), PlayerBattleLogResponse[].class);
       return playerBattleLogResponses[0];
     } catch (Exception e) {
-      log.error("ERROR: CAN'T RETRIEVE PLAYER BATTLE LOG WITH TAG" + tag);
+      log.error("ERROR: CAN'T RETRIEVE PLAYER BATTLE LOG WITH TAG " + tag);
       e.printStackTrace();
       return null;
     }
