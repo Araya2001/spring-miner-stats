@@ -1,6 +1,7 @@
 
 package com.aajdev.springminerstats.controller;
 
+import com.aajdev.springminerstats.dto.app.PlayerResponse;
 import com.aajdev.springminerstats.dto.app.TestResponse;
 import com.aajdev.springminerstats.service.ClashRoyaleService;
 import lombok.extern.log4j.Log4j2;
@@ -30,7 +31,6 @@ public class StatsController {
     log.warn("NEW REQUEST - HTTP GET on resource mapping \"/testApiRequest\" - IP: " + request.getHeader("X-FORWARDED-FOR"));
     HttpStatus httpStatus;
     TestResponse response = new TestResponse();
-    StringBuilder sb = new StringBuilder("");
     try {
       response.setStatus("SUCCESS");
       response.setMessage("OK");
@@ -62,4 +62,24 @@ public class StatsController {
     }
     return new ResponseEntity<>(response, httpStatus);
   }
+
+  @GetMapping(value = "/getPlayer", produces = MediaType.APPLICATION_JSON_VALUE)
+  @ResponseBody
+  public ResponseEntity<PlayerResponse> getPlayerTag(HttpServletRequest request, @RequestParam String tag) {
+    log.warn("NEW REQUEST - HTTP GET on resource mapping \"/testApiRequest\" - IP: " + request.getHeader("X-FORWARDED-FOR"));
+    HttpStatus httpStatus;
+    PlayerResponse response = new PlayerResponse();
+    try {
+      response.setStatus("SUCCESS");
+      response.setMessage("OK");
+      response.setPlayerInformation(clashRoyaleService.getPlayerWithTag(tag));
+      httpStatus = HttpStatus.OK;
+    } catch (Exception e) {
+      httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+      response.setStatus("ERROR");
+      response.setMessage("INTERNAL SERVER ERROR");
+    }
+    return new ResponseEntity<>(response, httpStatus);
+  }
+
 }
