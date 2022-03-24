@@ -1,3 +1,8 @@
 server:
-  port: ${PORT:8080}
-  address: ${HOST}
+  # port: ${PORT:8080}
+  port: 8081
+logging:
+  level:
+    com:
+      google:
+        auth: DEBUG
